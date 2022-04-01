@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppStateProvider } from 'app/state/AppStateProvider';
 
 import { render } from 'tests';
 
@@ -6,11 +7,13 @@ import { Login } from './Login';
 
 describe('Login', () => {
   test('Displays all information', async () => {
-    const { getByText, getByLabelText } = render(<Login />);
+    const { getByText, getByLabelText } = render(
+      <AppStateProvider>
+        <Login />
+      </AppStateProvider>
+    );
 
-    expect(getByText('Products page')).toBeInTheDocument();
-    expect(getByText('Products page')).toBeInTheDocument();
-    expect(getByLabelText('username:')).toBeInTheDocument();
-    expect(getByLabelText('password:')).toBeInTheDocument();
+    expect(getByText('Username')).toBeInTheDocument();
+    expect(getByText('Password')).toBeInTheDocument();
   });
 });

@@ -1,7 +1,6 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { AppRoutes } from 'routing/AppRoutes';
 
-export const App = () => {
-  return <AppRoutes />;
+export const App: FC = () => {
+  return <AppRoutes />
 };

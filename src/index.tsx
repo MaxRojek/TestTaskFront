@@ -1,14 +1,16 @@
 import React from 'react';
+import './index.css';
 import ReactDOM from 'react-dom';
-
 import { AppProviders } from 'providers/AppProviders';
-
+import { AppStateProvider } from 'app/state/AppStateProvider';
 import { App } from './app/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <AppProviders>
-    <App />
+    <AppStateProvider>
+      <App />
+    </AppStateProvider>
   </AppProviders>,
   document.getElementById('root'),
 );
